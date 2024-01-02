@@ -87,7 +87,10 @@ This one is a bit more advanced however nothing in comparison to most!
          To: 1
          Structure Output (JSON, etc): On ]
 
-    <Read the whole array, this is to work out how long the whole file is to be used later in the loop. The array is stored in %latex_length and the length of the array can be read through %latex_length(#). Ensure that the file is being read in vertical mode and it is reading the CSV correctly, use flashes to output singular lines until you are sure the programs work, then add a loop into it>
+    <Read the whole array, this is to work out how long the whole file is to be used later in the loop. 
+The array is stored in %latex_length and the length of the array can be read through %latex_length(#). 
+Ensure that the file is being read in vertical mode and it is reading the CSV correctly, 
+use flashes to output singular lines until you are sure the programs work, then add a loop into it>
     A3: AutoTools Arrays [
          Configuration: Input Arrays: /storage/emulated/0/Download/AutoTools/dictionary.csv
          Vertical Mode: true
@@ -101,7 +104,9 @@ This one is a bit more advanced however nothing in comparison to most!
          Timeout (Seconds): 60
          Structure Output (JSON, etc): On ]
 
-    <Loop. Reads current position and compares it to the last index in the array, if it is less it will continue. +1 so that it can read the last item. <= would be best here but is not an option>
+    <Loop. Reads current position and compares it to the last index in the array, 
+if it is less it will continue. +1 so that it can read the last item. 
+<= would be best here but is not an option>
     A4: If [ %CurrentPos < %latex_length(#)+1 ]
        
         <Read the line at the current index position and output into a variable>
@@ -124,7 +129,9 @@ This one is a bit more advanced however nothing in comparison to most!
              Timeout (Seconds): 60
              Structure Output (JSON, etc): On ]
     
-        <A7 -> A10 are screen press actions performed by AutoInput. This operates by pressing the + icon on the settings screen, then entering the appropiate items into both text fields then finally pressing add>
+        <A7 -> A10 are screen press actions performed by AutoInput. 
+This operates by pressing the + icon on the settings screen, 
+then entering the appropiate items into both text fields then finally pressing add>
         A7: AutoInput Action [
              Configuration: Type: Id
              Value: com.samsung.android.honeyboard:id/text_shortcuts_add_menu
