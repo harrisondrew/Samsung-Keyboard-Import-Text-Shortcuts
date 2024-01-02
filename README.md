@@ -1,0 +1,1 @@
+# Samsung-Keyboard-Import-Text-Shortcuts
