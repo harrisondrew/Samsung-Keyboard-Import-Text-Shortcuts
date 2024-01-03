@@ -16,10 +16,14 @@ The only option left to me, without rooting is to automate the input of every si
 
 ## Setting up Tasker
 1. Install Tasker from the google play store
+   
    https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en_GB&gl=US
-2. Grant ADB permissions
+   
+3. Grant ADB permissions
+   
    https://tasker.joaoapps.com/userguide/en/help/ah_secure_setting_grant.html
-3. Install AutoTools and AutoInput (AutoTools only required for keyboard switching)
+   
+5. Install AutoTools and AutoInput (AutoTools only required for keyboard switching)
    
    AutoTools: https://play.google.com/store/apps/details?id=com.joaomgcd.autotools
    
@@ -27,6 +31,7 @@ The only option left to me, without rooting is to automate the input of every si
 
 ## Keyboard Switching
 This is relatively simple, I will attach code below but this link can explain it much better than I can.
+
 https://www.xda-developers.com/how-to-automatically-change-your-keyboard-on-a-per-app-basis/
 
 This guide was written around the use case of switching when a specific app was opened for changing between voice typing and keyboard typing, the general process is the same except changing the profile to a state instead.
