@@ -77,7 +77,7 @@ The first task is to transform the .txt file provided by [DenverCoder1](https://
 However I doubt most people need LaTeX dictionary so just ensure whatever you are importing is in the CSV, others might work too but I have only played around enough to get this working.
 
 This utilises Actions v2 in AutoTools but using Actions v1 is possible and can solve some obscure use cases where Actions v2 is unable to read data.
-If your shortcuts involve brackets or are having issues have a look at the V1 program I made. ![TextShortcutsV1](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/TextShortcuts_ActionsV1)
+If your shortcuts involve brackets or are having issues have a look at the V1 program I made. [TextShortcutsV1](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/TextShortcuts_ActionsV1)
 
 ### Code
 This one is a bit more advanced however nothing in comparison to most!
