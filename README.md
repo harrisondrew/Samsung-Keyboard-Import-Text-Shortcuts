@@ -1,6 +1,5 @@
-# Method to automate importing text shortcuts into Samsung Keyboard
-TLDR Cannot use math dictionary on samsung keyboard, so automated input from CSV list
-For code jump to bold parts
+# Method to automate importing text shortcuts into Samsung Keyboard (and potentially others)
+TLDR Cannot use math dictionary on samsung keyboard, so automated input from CSV list, this will probably work for other keyboards too, just the input actions may differ to my own.
 
 Gboard on my Samsung Tab S7+ has an annoying issue where the toolbar, where autocorrect words and other features appear, does not show up when the physical hardware keyboard is connected. For me this is the magnetic book cover however bluetooth may be used as well.
 
