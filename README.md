@@ -175,7 +175,7 @@ This one is a bit more advanced however nothing in comparison to most!
     
 ![](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/TextShortcutsV2.jpg)
 
-#Helpful links
+# Helpful links
 1. Reading items from CSV
    https://www.reddit.com/r/tasker/comments/jaifd8/comment/g8qk4qv/?utm_source=share
 2. Autoinput write variable (ActionV1)
