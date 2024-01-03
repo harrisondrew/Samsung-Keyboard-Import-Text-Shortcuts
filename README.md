@@ -26,6 +26,7 @@ The only option left to me, without rooting is to automate the input of every si
 ## Keyboard Switching
 This is relatively simple, I will attach code below but this link can explain it much better than I can.
 https://www.xda-developers.com/how-to-automatically-change-your-keyboard-on-a-per-app-basis/
+
 This guide was written around the use case of switching when a specific app was opened for changing between voice typing and keyboard typing, the general process is the same except changing the profile to a state instead.
 
 ### Code
@@ -33,7 +34,8 @@ This guide was written around the use case of switching when a specific app was 
 2. Create task to switch to the keyboard, this only activates while the profile is true. I also like to have the screen flash up that it has switched just so I know it's working although this is not necessary.
 3. Create an exit task to switch the keyboard back to the original one once the physical keyboard is removed.
    
-'''
+```
+
     Profile: Keyboard switcher
     	State: Keyboard Out
     
@@ -64,18 +66,21 @@ This guide was written around the use case of switching when a specific app was 
          Configuration: Input Method: com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME
          Timeout (Seconds): 60
          Structure Output (JSON, etc): On ]
-'''
+```
 
 ![](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/KeyboardSwitchProfile.jpg)
 
 ## Automating text shortcuts
-The first task is to transform the .txt file provided in [DenverCoder1s github repo](https://github.com/DenverCoder1) into a CSV file, this enables it to be read as an array and extract each line in turn. There are several duplicates in there so keep an eye out if you use that one yourself or just view the one stored here. 
+The first task is to transform the .txt file provided by [DenverCoder1](https://github.com/DenverCoder1) into a CSV file, this enables it to be read as an array and extract each line in turn. There are several duplicates in there so keep an eye out if you use that one yourself or just view the one stored here. 
 However I doubt most people need LaTeX dictionary so just ensure whatever you are importing is in the CSV, others might work too but I have only played around enough to get this working.
 
-###Code
+This utilises Actions in AutoTools but ActionsV2 have now been released which are way faster. **Using ActionsV2 is recommended** but it did not work for my use case because of brackets.
+
+### Code
 This one is a bit more advanced however nothing in comparison to most!
 
-'''
+```
+
     Task: TextShortcutsV1
     
     <Clears all the variables initially, had a few issues with data being saved in memory and messing things up further down the line>
@@ -173,8 +178,7 @@ This one is a bit more advanced however nothing in comparison to most!
         A12: Goto [
               Type: Action Number
               Number: 4 ]
-'''  
+```
     
 ![](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/ImportShortcuts.jpg)
-
 
