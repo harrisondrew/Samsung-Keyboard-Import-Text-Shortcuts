@@ -169,7 +169,7 @@ This one is a bit more advanced however nothing in comparison to most!
     
 ```
     
-![](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/ImportShortcuts.jpg)
+![](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/TextShortcutsV2.jpg)
 
 #Helpful links
 1. Reading items from CSV
