@@ -65,7 +65,8 @@ This guide was written around the use case of switching when a specific app was 
          Timeout (Seconds): 60
          Structure Output (JSON, etc): On ]
 '''
-    
+
+![](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/KeyboardSwitchProfile.jpg)
 
 ## Automating text shortcuts
 The first task is to transform the .txt file provided in [DenverCoder1s github repo](https://github.com/DenverCoder1) into a CSV file, this enables it to be read as an array and extract each line in turn. There are several duplicates in there so keep an eye out if you use that one yourself or just view the one stored here. 
@@ -174,6 +175,6 @@ This one is a bit more advanced however nothing in comparison to most!
               Number: 4 ]
 '''  
     
-
+![](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/ImportShortcuts.jpg)
 
 
