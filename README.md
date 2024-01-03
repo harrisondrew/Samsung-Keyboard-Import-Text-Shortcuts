@@ -20,7 +20,9 @@ The only option left to me, without rooting is to automate the input of every si
 2. Grant ADB permissions
    https://tasker.joaoapps.com/userguide/en/help/ah_secure_setting_grant.html
 3. Install AutoTools and AutoInput (AutoTools only required for keyboard switching)
+   
    AutoTools: https://play.google.com/store/apps/details?id=com.joaomgcd.autotools
+   
    AutoInput: https://play.google.com/store/apps/details?id=com.joaomgcd.autoinput
 
 ## Keyboard Switching
@@ -74,15 +76,15 @@ This guide was written around the use case of switching when a specific app was 
 The first task is to transform the .txt file provided by [DenverCoder1](https://github.com/DenverCoder1) into a CSV file, this enables it to be read as an array and extract each line in turn. There are several duplicates in there so keep an eye out if you use that one yourself or just view the one stored here. 
 However I doubt most people need LaTeX dictionary so just ensure whatever you are importing is in the CSV, others might work too but I have only played around enough to get this working.
 
-This utilises Actions in AutoTools but ActionsV2 have now been released which are way faster. **Using ActionsV2 is recommended** but it did not work for my use case because of brackets.
+This utilises Actions v2 in AutoTools but using Actions v1 is possible and can solve some obscure use cases where Actions v2 is unable to read data.
+If your shortcuts involve brackets or are having issues have a look at the V1 program I made. ![TextShortcutsV1](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/TextShortcuts_ActionsV1)
 
 ### Code
 This one is a bit more advanced however nothing in comparison to most!
 
 ```
+    Task: TextShortcutsV2
 
-    Task: TextShortcutsV1
-    
     <Clears all the variables initially, had a few issues with data being saved in memory and messing things up further down the line>
     A1: Variable Clear [
          Clear All Variables: On ]
@@ -90,7 +92,7 @@ This one is a bit more advanced however nothing in comparison to most!
     <Set the initial starting point, not required however if you have to pause and return this is a useful feature to have>
     A2: Variable Set [
          Name: %CurrentPos
-         To: 1
+         To: 0
          Structure Output (JSON, etc): On ]
 
     <Read the whole array, this is to work out how long the whole file is to be used later in the loop. 
@@ -114,14 +116,14 @@ This one is a bit more advanced however nothing in comparison to most!
     if it is less it will continue. +1 so that it can read the last item. 
     <= would be best here but is not an option>
     A4: If [ %CurrentPos < %latex_length(#)+1 ]
-       
+
         <Read the line at the current index position and output into a variable>
         A5: Read Line [
              File: Download/AutoTools/dictionary.csv
              Line: %CurrentPos
              To Var: %CSV_Line
              Structure Output (JSON, etc): On ]
-       
+
         <Use AutoTools to parse the array into separate variables>
         A6: AutoTools Arrays [
              Configuration: Input Arrays: %CSV_Line
@@ -134,50 +136,37 @@ This one is a bit more advanced however nothing in comparison to most!
              Merged Array Name: atmergedarray
              Timeout (Seconds): 60
              Structure Output (JSON, etc): On ]
-    
-        <A7 -> A10 are screen press actions performed by AutoInput. 
+
+        <A7 are screen press actions performed by AutoInput Actions v2.
         This operates by pressing the + icon on the settings screen, 
         then entering the appropiate items into both text fields then finally pressing add>
-        A7: AutoInput Action [
-             Configuration: Type: Id
-             Value: com.samsung.android.honeyboard:id/text_shortcuts_add_menu
-             Action : Click
-             Timeout (Seconds): 23
+        A7: AutoInput Actions v2 [
+             Configuration: Actions To Perform: click(id,com.samsung.android.honeyboard:id/text_shortcuts_add_menu)
+             
+             setText(id,com.samsung.android.honeyboard:id/text_shortcut_add_popup_shortcut_edittext,%latex\(\))
+             
+             setText(id,com.samsung.android.honeyboard:id/text_shortcut_add_popup_phrase_edittext,%symbol\(\))
+             
+             click(id,android:id/button1)
+             Not In AutoInput: true
+             Not In Tasker: true
+             Separator: ,
+             Check Millis: 1000
+             Timeout (Seconds): 600
              Structure Output (JSON, etc): On ]
-    
-        A8: AutoInput Action [
-             Configuration: Type: Id
-             Value: com.samsung.android.honeyboard:id/text_shortcut_add_popup_shortcut_edittext
-             Text to Write : %latex()
-             Action : Write
-             Timeout (Seconds): 23
-             Structure Output (JSON, etc): On ]
-    
-        A9: AutoInput Action [
-             Configuration: Type: Id
-             Value: com.samsung.android.honeyboard:id/text_shortcut_add_popup_phrase_edittext
-             Text to Write : %symbol()
-             Action : Write
-             Timeout (Seconds): 23
-             Structure Output (JSON, etc): On ]
-    
-        A10: AutoInput Action [
-              Configuration: Type: Id
-             Value: android:id/button1
-             Action : Click
-              Timeout (Seconds): 23
-              Structure Output (JSON, etc): On ]
-    
+
         <Iterate CurrentPos index position to go to the next item>
-        A11: Variable Add [
-              Name: %CurrentPos
-              Value: 1
-              Wrap Around: 0 ]
-    
+        A8: Variable Add [
+             Name: %CurrentPos
+             Value: 1
+             Wrap Around: 0 ]
+
         <Goto A4 and repeat everything while the IF statement is TRUE>
-        A12: Goto [
-              Type: Action Number
-              Number: 4 ]
+        A9: Goto [
+             Type: Action Number
+             Number: 4 ]
+    
+    
 ```
     
 ![](https://github.com/harrisondrew/Samsung-Keyboard-Import-Text-Shortcuts/blob/main/ImportShortcuts.jpg)
